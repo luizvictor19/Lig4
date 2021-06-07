@@ -1,0 +1,34 @@
+body,div{
+    margin: 0;
+    padding: 0;
+    text-decoration: 0;
+    list-style: none;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+   
+}
+
+#container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.coluna{
+    width:50px;
+    height: 50px;
+    border: solid 0.5px;
+
+}
+
+.linha{
+    width:50px;
+    height: 50px;
+    border: solid 0.5px;
+
+}
+
