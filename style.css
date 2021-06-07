@@ -1,0 +1,19 @@
+.torre-teste {
+    height: 400px;
+    width: 400px;
+    background-color: aqua;
+}
+
+.disco-red {
+    border-radius: 200px;
+    background-color: red;
+    width: 200px;
+    height: 200px;
+}
+
+.disco-black {
+    border-radius: 200px;
+    background-color: black;
+    width: 200px;
+    height: 200px;
+}
