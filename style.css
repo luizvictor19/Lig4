@@ -1,19 +1,33 @@
-.torre-teste {
-    height: 400px;
-    width: 400px;
-    background-color: aqua;
+body,div{
+    margin: 0;
+    padding: 0;
+    text-decoration: 0;
+    list-style: none;
 }
 
-.disco-red {
-    border-radius: 200px;
-    background-color: red;
-    width: 200px;
-    height: 200px;
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
 }
 
-.disco-black {
-    border-radius: 200px;
-    background-color: black;
-    width: 200px;
-    height: 200px;
+#container{
+    max-width: 350px;
+
 }
+
+.coluna{
+    width:50px;
+    height: 50px;
+    border: solid 0.5px;
+
+}
+
+.linha{
+    display: flex;
+}
+
+>>>>>>> master
