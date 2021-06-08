@@ -62,7 +62,7 @@ function swapPlayer(event){
                 teste[i].appendChild(disco)
                 jogada = 'preto'
                 break
-            }else if(jogada === 'preto'){
+            } else if(jogada === 'preto'){
                 let disco = document.createElement('div')
                 disco.classList.remove('disco-red')
                 disco.classList.add('disco-black')
@@ -74,7 +74,8 @@ function swapPlayer(event){
             
         }
     }
-
+    horizontalWinCondition()
+    verticalWinCondition()
 }
 
 let array = document.querySelectorAll('.coluna')
@@ -91,3 +92,46 @@ for(let i = 0; i < array.length; i++){
 // addDisco()
 
 // Lucas //
+
+
+    // Horizontal Win Condition //
+
+function horizontalWinCondition () {
+    for (let i = 0; i < container.children.length; i++) {
+        for (let j = 0; j < 3; j++) {
+            if (container.children[i].children[j].innerHTML !== "" &&
+                container.children[i].children[j + 1].innerHTML !== "" &&
+                container.children[i].children[j + 2].innerHTML !== "" &&
+                container.children[i].children[j + 3].innerHTML !== "") {
+                 
+                    // Horizontal //
+                if (container.children[i].children[j].children[0].className === container.children[i].children[j + 1].children[0].className &&
+                    container.children[i].children[j].children[0].className === container.children[i].children[j + 2].children[0].className &&
+                    container.children[i].children[j].children[0].className === container.children[i].children[j + 3].children[0].className) {
+                    alert(container.children[i].children[j].children[0].className + ' win')
+                }
+            }
+        }
+    }
+}
+
+    // Vertical Win Condition //
+
+function verticalWinCondition () {
+    for (let i = 0; i < container.children.length; i++) {
+        for (let j = 0; j <= 3; j++) {
+            if (container.children[i].children[j].innerHTML !== "" &&
+                container.children[i + 1].children[j].innerHTML !== "" &&
+                container.children[i + 2].children[j].innerHTML !== "" &&
+                container.children[i + 3].children[j].innerHTML !== "") {
+                 
+                    // Vertical //
+                if (container.children[i].children[j].children[0].className === container.children[i + 1].children[j].children[0].className &&
+                    container.children[i].children[j].children[0].className === container.children[i + 2].children[j].children[0].className &&
+                    container.children[i].children[j].children[0].className === container.children[i + 3].children[j].children[0].className) {
+                    alert(container.children[i].children[j].children[0].className + ' win')
+                }
+            }
+        }
+    }
+}
