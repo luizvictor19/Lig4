@@ -95,6 +95,23 @@ for(let i = 0; i < array.length; i++){
 
 // Lucas //
 
+
+    // Compare Function //
+
+function winCompare (item, firstNextItem, secondNextItem, thirdNextItem) {
+    if (item !== undefined &&
+        firstNextItem !== undefined &&
+        secondNextItem !== undefined &&
+        thirdNextItem !== undefined) {
+         
+        if (item.className === firstNextItem.className &&
+            item.className === secondNextItem.className &&
+            item.className === thirdNextItem.className) {
+            alert(item.className + ' win')
+        }
+    }
+}
+
 let horizontalCompare = 2
 let verticalCompare = 3
 
@@ -109,18 +126,7 @@ function verticalWin () {
             let secondNextItem = container.children[i].children[j + 2].children[0]
             let thirdNextItem = container.children[i].children[j + 3].children[0]
 
-            if (item !== undefined &&
-                firstNextItem !== undefined &&
-                secondNextItem !== undefined &&
-                thirdNextItem !== undefined) {
-                 
-                    // Horizontal //
-                if (item.className === firstNextItem.className &&
-                    item.className === secondNextItem.className &&
-                    item.className === thirdNextItem.className) {
-                    alert(item.className + ' win')
-                }
-            }
+            winCompare (item, firstNextItem, secondNextItem, thirdNextItem)
         }
     }
 }
@@ -136,18 +142,7 @@ function horizontalWin () {
             let secondNextItem = container.children[i + 2].children[j].children[0]
             let thirdNextItem = container.children[i + 3].children[j].children[0]
 
-            if (item !== undefined &&
-                firstNextItem !== undefined &&
-                secondNextItem !== undefined &&
-                thirdNextItem !== undefined) {
-                 
-                    // Vertical //
-                if (item.className === firstNextItem.className &&
-                    item.className === secondNextItem.className &&
-                    item.className === thirdNextItem.className) {
-                    alert(item.className + ' win')
-                }
-            }
+            winCompare (item, firstNextItem, secondNextItem, thirdNextItem)
         }
     }
 }
@@ -163,18 +158,7 @@ function firstDiagonalWin () {
             let secondNextItem = container.children[i + 2].children[j + 2].children[0]
             let thirdNextItem = container.children[i + 3].children[j + 3].children[0]
 
-            if (item !== undefined &&
-                firstNextItem !== undefined &&
-                secondNextItem !== undefined &&
-                thirdNextItem !== undefined) {
-
-                    // Diagonal //
-                if (item.className === firstNextItem.className &&
-                    item.className === secondNextItem.className &&
-                    item.className === thirdNextItem.className) {
-                    alert(item.className + ' win')
-                }
-            }
+            winCompare (item, firstNextItem, secondNextItem, thirdNextItem)
         }
     }
 }
@@ -190,18 +174,7 @@ function secondDiagonalWin () {
             let secondNextItem = container.children[i - 2].children[j + 2].children[0]
             let thirdNextItem = container.children[i - 3].children[j + 3].children[0]
 
-            if (item !== undefined &&
-                firstNextItem !== undefined &&
-                secondNextItem !== undefined &&
-                thirdNextItem !== undefined) {
-
-                    // Diagonal //
-                if (item.className === firstNextItem.className &&
-                    item.className === secondNextItem.className &&
-                    item.className === thirdNextItem.className) {
-                    alert(item.className + ' win')
-                }
-            }
+            winCompare (item, firstNextItem, secondNextItem, thirdNextItem)
         }
     }
 }
