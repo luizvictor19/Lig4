@@ -3,6 +3,8 @@ const body = document.querySelector('body');
 const container = document.createElement('div');
 container.id = "container";
 body.appendChild(container);
+let botaoReset = document.getElementById('botao_resetar')
+let modalReset = document.getElementById('ganhou')
 
 const board = [
     "BBBBBB",
@@ -21,6 +23,7 @@ const board = [
 // Caroline //
 //criar um array com todas as posições das div's:
 const criarBoard = () => {
+    container.style.display = 'flex'
     for (let i = 0; i < board.length; i++) {
         let coluna = document.createElement('div');
         coluna.classList = "coluna"
@@ -38,36 +41,28 @@ const criarBoard = () => {
 criarBoard()
 
 // Luiz //
-document.getElementById("container").addEventListener("click", someFunction);
-let torre = ''
-function someFunction(event) {
-  torre = event.target
-//   torre = document.getElementsByClassName(torre)
-} 
 
 let jogada = 'vermelho'
 
 function swapPlayer(event){
-    torre = event.target
-    let teste = event.currentTarget.children
+
+    let torre = event.currentTarget.children
 
 
-    for(let i = 0; i < teste.length; i++){
-        if(!teste[i].hasChildNodes()){
+    for(let i = 0; i < torre.length; i++){
+        if(!torre[i].hasChildNodes()){
             if(jogada === 'vermelho'){
                 let disco = document.createElement('div')
                 disco.classList.remove('disco-black')
                 disco.classList.add('disco-red')
-                // torre.appendChild(disco)
-                teste[i].appendChild(disco)
+                torre[i].appendChild(disco)
                 jogada = 'preto'
                 break
             } else if(jogada === 'preto'){
                 let disco = document.createElement('div')
                 disco.classList.remove('disco-red')
                 disco.classList.add('disco-black')
-                // torre.appendChild(disco)
-                teste[i].appendChild(disco)
+                torre[i].appendChild(disco)
                 jogada = 'vermelho'
                 break
             }
@@ -78,11 +73,16 @@ function swapPlayer(event){
     verticalWinCondition()
 }
 
-let array = document.querySelectorAll('.coluna')
+const getTowers = () => {
+    let array = document.querySelectorAll('.coluna')
 
 for(let i = 0; i < array.length; i++){
     array[i].addEventListener("click", swapPlayer)
 }
+    
+}
+getTowers()
+
 
 // function addDisco() {
 //     for(let i = 0; i < array.length; i++){
@@ -108,7 +108,9 @@ function horizontalWinCondition () {
                 if (container.children[i].children[j].children[0].className === container.children[i].children[j + 1].children[0].className &&
                     container.children[i].children[j].children[0].className === container.children[i].children[j + 2].children[0].className &&
                     container.children[i].children[j].children[0].className === container.children[i].children[j + 3].children[0].className) {
-                    alert(container.children[i].children[j].children[0].className + ' win')
+                    container.style.display = 'none'
+                    modalReset.style.display = 'flex'
+                    
                 }
             }
         }
@@ -129,9 +131,19 @@ function verticalWinCondition () {
                 if (container.children[i].children[j].children[0].className === container.children[i + 1].children[j].children[0].className &&
                     container.children[i].children[j].children[0].className === container.children[i + 2].children[j].children[0].className &&
                     container.children[i].children[j].children[0].className === container.children[i + 3].children[j].children[0].className) {
-                    alert(container.children[i].children[j].children[0].className + ' win')
+                    container.style.display = 'none'
+                    modalReset.style.display = 'flex'
                 }
             }
         }
     }
 }
+
+
+const gameReset = () => {
+    container.innerHTML = ''
+    modalReset.style.display = 'none'
+    criarBoard()
+    getTowers()
+}
+botaoReset.addEventListener("click", gameReset);
