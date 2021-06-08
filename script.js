@@ -74,8 +74,10 @@ function swapPlayer(event){
             
         }
     }
-    horizontalWinCondition()
-    verticalWinCondition()
+    verticalWin()
+    horizontalWin()
+    firstDiagonalWin()
+    secondDiagonalWin()
 }
 
 let array = document.querySelectorAll('.coluna')
@@ -93,12 +95,14 @@ for(let i = 0; i < array.length; i++){
 
 // Lucas //
 
+let horizontalCompare = 2
+let verticalCompare = 3
 
-    // Horizontal Win Condition //
+    // Vertical Win Condition //
 
-function horizontalWinCondition () {
+function verticalWin () {
     for (let i = 0; i < container.children.length; i++) {
-        for (let j = 0; j < 3; j++) {
+        for (let j = 0; j <= horizontalCompare; j++) {
             if (container.children[i].children[j].innerHTML !== "" &&
                 container.children[i].children[j + 1].innerHTML !== "" &&
                 container.children[i].children[j + 2].innerHTML !== "" &&
@@ -115,11 +119,11 @@ function horizontalWinCondition () {
     }
 }
 
-    // Vertical Win Condition //
+    // Horizontal Win Condition //
 
-function verticalWinCondition () {
-    for (let i = 0; i < container.children.length; i++) {
-        for (let j = 0; j <= 3; j++) {
+function horizontalWin () {
+    for (let i = 0; i <= verticalCompare; i++) {
+        for (let j = 0; j < container.children[i].children.length; j++) {
             if (container.children[i].children[j].innerHTML !== "" &&
                 container.children[i + 1].children[j].innerHTML !== "" &&
                 container.children[i + 2].children[j].innerHTML !== "" &&
@@ -129,6 +133,48 @@ function verticalWinCondition () {
                 if (container.children[i].children[j].children[0].className === container.children[i + 1].children[j].children[0].className &&
                     container.children[i].children[j].children[0].className === container.children[i + 2].children[j].children[0].className &&
                     container.children[i].children[j].children[0].className === container.children[i + 3].children[j].children[0].className) {
+                    alert(container.children[i].children[j].children[0].className + ' win')
+                }
+            }
+        }
+    }
+}
+
+    // First Diagonal Win Condition //
+
+function firstDiagonalWin () {
+    for (let i = 0; i <= verticalCompare; i++) {
+        for (let j = 0; j <= horizontalCompare; j++) {
+            if (container.children[i].children[j].innerHTML !== "" &&
+                container.children[i + 1].children[j + 1].innerHTML !== "" &&
+                container.children[i + 2].children[j + 2].innerHTML !== "" &&
+                container.children[i + 3].children[j + 3].innerHTML !== "") {
+
+                    // Diagonal //
+                if (container.children[i].children[j].children[0].className === container.children[i + 1].children[j + 1].children[0].className &&
+                    container.children[i].children[j].children[0].className === container.children[i + 2].children[j + 2].children[0].className &&
+                    container.children[i].children[j].children[0].className === container.children[i + 3].children[j + 3].children[0].className) {
+                    alert(container.children[i].children[j].children[0].className + ' win')
+                }
+            }
+        }
+    }
+}
+
+    // Second Diagonal Win Condition //
+
+function secondDiagonalWin () {
+    for (let i = container.children.length - 1; i >= verticalCompare; i--) {
+        for (let j = 0; j <= horizontalCompare; j++) {
+            if (container.children[i].children[j].innerHTML !== "" &&
+                container.children[i - 1].children[j + 1].innerHTML !== "" &&
+                container.children[i - 2].children[j + 2].innerHTML !== "" &&
+                container.children[i - 3].children[j + 3].innerHTML !== "") {
+
+                    // Diagonal //
+                if (container.children[i].children[j].children[0].className === container.children[i - 1].children[j + 1].children[0].className &&
+                    container.children[i].children[j].children[0].className === container.children[i - 2].children[j + 2].children[0].className &&
+                    container.children[i].children[j].children[0].className === container.children[i - 3].children[j + 3].children[0].className) {
                     alert(container.children[i].children[j].children[0].className + ' win')
                 }
             }
