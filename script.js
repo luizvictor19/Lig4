@@ -97,7 +97,6 @@ for(let i = 0; i < array.length; i++){
 
 
     // Compare Function //
-
 function winCompare (item, firstNextItem, secondNextItem, thirdNextItem) {
     if (item !== undefined &&
         firstNextItem !== undefined &&
@@ -116,7 +115,6 @@ let horizontalCompare = 2
 let verticalCompare = 3
 
     // Vertical Win Condition //
-
 function verticalWin () {
     for (let i = 0; i < container.children.length; i++) {
         for (let j = 0; j <= horizontalCompare; j++) {
@@ -132,7 +130,6 @@ function verticalWin () {
 }
 
     // Horizontal Win Condition //
-
 function horizontalWin () {
     for (let i = 0; i <= verticalCompare; i++) {
         for (let j = 0; j < container.children[i].children.length; j++) {
@@ -148,7 +145,6 @@ function horizontalWin () {
 }
 
     // First Diagonal Win Condition //
-
 function firstDiagonalWin () {
     for (let i = 0; i <= verticalCompare; i++) {
         for (let j = 0; j <= horizontalCompare; j++) {
@@ -164,7 +160,6 @@ function firstDiagonalWin () {
 }
 
     // Second Diagonal Win Condition //
-
 function secondDiagonalWin () {
     for (let i = container.children.length - 1; i >= verticalCompare; i--) {
         for (let j = 0; j <= horizontalCompare; j++) {
