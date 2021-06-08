@@ -69,8 +69,10 @@ function swapPlayer(event){
             
         }
     }
-    horizontalWinCondition()
-    verticalWinCondition()
+    verticalWin()
+    horizontalWin()
+    firstDiagonalWin()
+    secondDiagonalWin()
 }
 
 const getTowers = () => {
@@ -83,58 +85,85 @@ for(let i = 0; i < array.length; i++){
 }
 getTowers()
 
-
-// function addDisco() {
-//     for(let i = 0; i < array.length; i++){
-//         console.log(array[i].children[i])
-//     }
-// }
-// addDisco()
-
 // Lucas //
 
 
-    // Horizontal Win Condition //
-
-function horizontalWinCondition () {
-    for (let i = 0; i < container.children.length; i++) {
-        for (let j = 0; j < 3; j++) {
-            if (container.children[i].children[j].innerHTML !== "" &&
-                container.children[i].children[j + 1].innerHTML !== "" &&
-                container.children[i].children[j + 2].innerHTML !== "" &&
-                container.children[i].children[j + 3].innerHTML !== "") {
-                 
-                    // Horizontal //
-                if (container.children[i].children[j].children[0].className === container.children[i].children[j + 1].children[0].className &&
-                    container.children[i].children[j].children[0].className === container.children[i].children[j + 2].children[0].className &&
-                    container.children[i].children[j].children[0].className === container.children[i].children[j + 3].children[0].className) {
-                    container.style.display = 'none'
-                    modalReset.style.display = 'flex'
-                    
-                }
-            }
+    // Compare Function //
+function winCompare (item, firstNextItem, secondNextItem, thirdNextItem) {
+    if (item !== undefined &&
+        firstNextItem !== undefined &&
+        secondNextItem !== undefined &&
+        thirdNextItem !== undefined) {
+         
+        if (item.className === firstNextItem.className &&
+            item.className === secondNextItem.className &&
+            item.className === thirdNextItem.className) {
+            // alert(item.className + ' win')
+            container.style.display = 'none'
+            modalReset.style.display = 'flex'
         }
     }
 }
 
-    // Vertical Win Condition //
+let horizontalCompare = 2
+let verticalCompare = 3
 
-function verticalWinCondition () {
+    // Vertical Win Condition //
+function verticalWin () {
     for (let i = 0; i < container.children.length; i++) {
-        for (let j = 0; j <= 3; j++) {
-            if (container.children[i].children[j].innerHTML !== "" &&
-                container.children[i + 1].children[j].innerHTML !== "" &&
-                container.children[i + 2].children[j].innerHTML !== "" &&
-                container.children[i + 3].children[j].innerHTML !== "") {
-                 
-                    // Vertical //
-                if (container.children[i].children[j].children[0].className === container.children[i + 1].children[j].children[0].className &&
-                    container.children[i].children[j].children[0].className === container.children[i + 2].children[j].children[0].className &&
-                    container.children[i].children[j].children[0].className === container.children[i + 3].children[j].children[0].className) {
-                    container.style.display = 'none'
-                    modalReset.style.display = 'flex'
-                }
-            }
+        for (let j = 0; j <= horizontalCompare; j++) {
+
+            let item = container.children[i].children[j].children[0]
+            let firstNextItem = container.children[i].children[j + 1].children[0]
+            let secondNextItem = container.children[i].children[j + 2].children[0]
+            let thirdNextItem = container.children[i].children[j + 3].children[0]
+
+            winCompare (item, firstNextItem, secondNextItem, thirdNextItem)
+        }
+    }
+}
+
+    // Horizontal Win Condition //
+function horizontalWin () {
+    for (let i = 0; i <= verticalCompare; i++) {
+        for (let j = 0; j < container.children[i].children.length; j++) {
+
+            let item = container.children[i].children[j].children[0]
+            let firstNextItem = container.children[i + 1].children[j].children[0]
+            let secondNextItem = container.children[i + 2].children[j].children[0]
+            let thirdNextItem = container.children[i + 3].children[j].children[0]
+
+            winCompare (item, firstNextItem, secondNextItem, thirdNextItem)
+        }
+    }
+}
+
+    // First Diagonal Win Condition //
+function firstDiagonalWin () {
+    for (let i = 0; i <= verticalCompare; i++) {
+        for (let j = 0; j <= horizontalCompare; j++) {
+
+            let item = container.children[i].children[j].children[0]
+            let firstNextItem = container.children[i + 1].children[j + 1].children[0]
+            let secondNextItem = container.children[i + 2].children[j + 2].children[0]
+            let thirdNextItem = container.children[i + 3].children[j + 3].children[0]
+
+            winCompare (item, firstNextItem, secondNextItem, thirdNextItem)
+        }
+    }
+}
+
+    // Second Diagonal Win Condition //
+function secondDiagonalWin () {
+    for (let i = container.children.length - 1; i >= verticalCompare; i--) {
+        for (let j = 0; j <= horizontalCompare; j++) {
+
+            let item = container.children[i].children[j].children[0]
+            let firstNextItem = container.children[i - 1].children[j + 1].children[0]
+            let secondNextItem = container.children[i - 2].children[j + 2].children[0]
+            let thirdNextItem = container.children[i - 3].children[j + 3].children[0]
+
+            winCompare (item, firstNextItem, secondNextItem, thirdNextItem)
         }
     }
 }
