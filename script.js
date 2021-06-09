@@ -7,6 +7,7 @@ container.id = "container";
 body.appendChild(container);
 let botaoReset = document.getElementById('botao_resetar')
 let modalReset = document.getElementById('ganhou')
+let winnerText = document.getElementById('ganhouTexto')
 
 const board = [
     "BBBBBB",
@@ -103,15 +104,24 @@ function winCompare (item, firstNextItem, secondNextItem, thirdNextItem) {
         if (item.className === firstNextItem.className &&
             item.className === secondNextItem.className &&
             item.className === thirdNextItem.className) {
-            // alert(item.className + ' win')
+               
+                // Modal Display //
+            if (item.className === 'disco-red') {
+                winnerText.innerText = 'Petter Quill Ganhou!'
+                modalReset.classList.add('petterWin')
+            }
+            else if (item.className === 'disco-black') {
+                winnerText.innerText = 'Rocket Raccoon Ganhou!'
+                modalReset.classList.add('raccoonWin')
+            }
             container.style.display = 'none'
             modalReset.style.display = 'flex'
         }
     }
 }
 
-let horizontalCompare = 2
-let verticalCompare = 3
+let horizontalCompare = 2 // Times needed to compare horizontally
+let verticalCompare = 3 // Times needed to compare vertically
 
     // Vertical Win Condition //
 function verticalWin () {
@@ -173,6 +183,7 @@ function secondDiagonalWin () {
     }
 }
 
+    // Draw Condition //
 function draw () {
     let primeiraLinha = document.querySelectorAll('[data-index="5"]')
     let contagem = 0
@@ -184,16 +195,22 @@ function draw () {
         }
      
     }
+        // Modal Display //
     if(contagem === 7){
         container.style.display = 'none'
+        winnerText.innerText = 'Empatou!'
+        modalReset.classList.add('draw')
         modalReset.style.display = 'flex'
     }
 
 }
 
-
+    // Reset Game Function //
 const gameReset = () => {
     container.innerHTML = ''
+    modalReset.classList.remove('draw')
+    modalReset.classList.remove('petterWin')
+    modalReset.classList.remove('raccoonWin')
     modalReset.style.display = 'none'
     criarBoard()
     getTowers()
