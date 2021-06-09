@@ -6,6 +6,7 @@ body.appendChild(container);
 let botaoReset = document.getElementById('botao_resetar')
 let modalReset = document.getElementById('ganhou')
 let winnerText = document.getElementById('ganhouTexto')
+let acabou = false
 
 const board = [
     "BBBBBB",
@@ -47,7 +48,7 @@ function swapPlayer(event) {
     for (let i = 0; i < torre.length; i++) {
         if (!torre[i].hasChildNodes()) {
 
-            if (jogada === 'vermelho') {
+            if (jogada === 'vermelho' && acabou === false) {
                 let disco = document.createElement('div')
                 disco.classList.remove('disco-black')
                 disco.classList.add('disco-red')
@@ -55,7 +56,7 @@ function swapPlayer(event) {
                 jogada = 'preto'
                 break
 
-            } else if (jogada === 'preto') {
+            } else if (jogada === 'preto' && acabou === false) {
                 let disco = document.createElement('div')
                 disco.classList.remove('disco-red')
                 disco.classList.add('disco-black')
@@ -90,18 +91,21 @@ function winCompare(item, firstNextItem, secondNextItem, thirdNextItem) {
         if (item.className === firstNextItem.className &&
             item.className === secondNextItem.className &&
             item.className === thirdNextItem.className) {
-
+            
             // Modal Display //
             if (item.className === 'disco-red') {
+                acabou = true
                 winnerText.innerText = 'Petter Quill Ganhou!'
                 modalReset.classList.add('petterWin')
             }
             else if (item.className === 'disco-black') {
+                acabou = true
                 winnerText.innerText = 'Rocket Raccoon Ganhou!'
                 modalReset.classList.add('raccoonWin')
             }
-            container.style.display = 'none'
-            modalReset.style.display = 'flex'
+
+            setTimeout(mostrarVitorioso, 700);
+            //setTimeout()
         }
     }
 }
@@ -180,10 +184,10 @@ function draw() {
     }
     // Modal Display //
     if (contagem === 7) {
-        container.style.display = 'none'
+
         winnerText.innerText = 'Empatou!'
         modalReset.classList.add('draw')
-        modalReset.style.display = 'flex'
+        setTimeout(mostrarVitorioso, 700);
     }
 
 }
@@ -195,9 +199,17 @@ const gameReset = () => {
     modalReset.classList.remove('petterWin')
     modalReset.classList.remove('raccoonWin')
     modalReset.style.display = 'none'
+    acabou = false
     
     criarBoard()
     getTowers()
 }
 
+const mostrarVitorioso = () => {
+    container.style.display = 'none'
+    modalReset.style.display = 'flex'
+}
+
+
 botaoReset.addEventListener("click", gameReset);
+
