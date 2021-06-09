@@ -73,25 +73,33 @@ body{
     0 0 5px #0fa;
 }
 
+.coluna:hover {
+    box-shadow: 0px 0px 20px 10px hsl(105deg 100% 59% / 75%);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
 /* >>>>>>> master */
 
 .disco-red {
-    background-image: url(./font/peterQuill.png);
+    background-image: url(./font/peterQuill2.png);
     background-size: 70px;
     width: 60px;
     height: 60px;
     border-radius: 30px;
+    border: 2px solid white;
     transform: translateY(-1000px);
     animation: efeitos 2s ease-in-out;
     animation-fill-mode: forwards;
 }
 
 .disco-black {
-    background-image: url(./font/Rockett.png);
+    background-image: url(./font/Rockett2.png);
     background-size: 70px;
     width: 60px;
     height: 60px;
     border-radius: 30px;
+    border: 2px solid white;
     transform: translateY(-1000px);
     animation: efeitos 2s ease-in-out;
     animation-fill-mode: forwards;
