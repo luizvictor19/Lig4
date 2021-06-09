@@ -190,7 +190,6 @@ function draw () {
     }
 
 }
-draw()
 
 
 const gameReset = () => {
