@@ -5,62 +5,115 @@ body,div{
     list-style: none;
 }
 
-body{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-   
+@font-face {
+    font-family: 'patron';
+    src: url(./font/Patron\ -\ PersonalUse.otf);
 }
 
+body{
+    font-family: patron;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    background-image: url(https://media.giphy.com/media/xVn3ZmKrKIOLS/giphy.gif);
+}
+
+#titulo{
+    font-family: patron;
+    color: white;
+    font-size: 65px;
+    color: #fff;
+     text-shadow:
+            0 0 7px #fff,
+            0 0 10px #fff,
+            0 0 21px #fff,
+            0 0 42px #0fa,
+            0 0 82px #0fa,
+            0 0 92px #0fa,
+            0 0 102px #0fa,
+            0 0 151px #0fa;
+}
+
+
 #container{
-    max-width: 350px;
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    max-width: 490px;
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 .coluna{
     display: flex;
     flex-direction: column-reverse;
     flex-wrap: wrap;
+    border-radius: 30px;
+
 }
 
 .linha{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50px;
-    width: 50px;
-    border: 1px solid black;
+    height: 70px;
+    width: 70px;
+    border-radius: 10px;
+    box-shadow:
+    0 0 7px #fff,
+    0 0 7px #fff,
+    0 0 1px #fff,
+    0 0 3px #0fa,
+    0 0 5px #0fa,
+    0 0 5px #0fa,
+    0 0 5px #0fa,
+    0 0 5px #0fa;
 }
 
 /* >>>>>>> master */
 
 .disco-red {
-    width: 30px;
-    height: 30px;
-    background-color: red;
+    background-image: url(./font/peterQuill.png);
+    background-size: 70px;
+    width: 60px;
+    height: 60px;
     border-radius: 30px;
+    transform: translateY(-1000px);
+    animation: efeitos 2s ease-in-out;
+    animation-fill-mode: forwards;
 }
 
 .disco-black {
-    width: 30px;
-    height: 30px;
-    background-color: rgb(0, 0, 0);
+    background-image: url(./font/Rockett.png);
+    background-size: 70px;
+    width: 60px;
+    height: 60px;
     border-radius: 30px;
+    transform: translateY(-1000px);
+    animation: efeitos 2s ease-in-out;
+    animation-fill-mode: forwards;
 }
 
 #ganhou{
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     position: absolute;
     width: 400px;
     height: 200px;
-    background-color: red;
-    z-index: 2;
+    background-image:url(https://media.giphy.com/media/Z9bmnMFw0PM6MnxVfp/giphy.gif);
+    box-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px #0fa,
+    0 0 82px #0fa,
+    0 0 92px #0fa,
+    0 0 102px #0fa,
+    0 0 151px #0fa;
     bottom: calc(50% - 100px);
     right: calc(50% - 200px);
     border-radius: 15px;
@@ -69,15 +122,26 @@ body{
 }
 
 #botao_resetar{
-
-    height: 30px;
-    width: 150px;
+    font-family: patron;
+    font-size: 10px;
+    height: 50px;
+    width: 200px;
+    background-color: lime;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    box-shadow: black 5px 5px 5px;
     border: none;
-    border-radius: 5px;
     padding: 5px;
     cursor: pointer;
     font-weight: 600;
     border: 2px solid transparent;
+}
 
-
+@keyframes efeitos{
+  0%{transform: translateY( -800px)}
+  32%{transform: translateY( 5px) scale(1.1,0.9) rotate(360deg)}
+  48%{transform: translateY(-100px)}
+  64%{transform: translateY(5px) scale(1.1,0.9)}
+  80%{transform: translateY(-25px)}
+  100%{transform: translateY(0px)}
 }

@@ -1,4 +1,6 @@
 
+const audio = document.querySelector('audio');
+
 const body = document.querySelector('body');
 const container = document.createElement('div');
 container.id = "container";
@@ -45,6 +47,8 @@ criarBoard()
 let jogada = 'vermelho'
 
 function swapPlayer(event){
+    audio.volume = 0.1
+    audio.play();
 
     let torre = event.currentTarget.children
 
