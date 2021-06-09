@@ -77,6 +77,7 @@ function swapPlayer(event){
     horizontalWin()
     firstDiagonalWin()
     secondDiagonalWin()
+    draw()
 }
 
 const getTowers = () => {
@@ -171,6 +172,25 @@ function secondDiagonalWin () {
         }
     }
 }
+
+function draw () {
+    let primeiraLinha = document.querySelectorAll('[data-index="5"]')
+    let contagem = 0
+    for(let i = 0; i < primeiraLinha.length; i++){
+        if(i !== 5){
+            if(primeiraLinha[i].hasChildNodes()){
+                contagem += 1
+            }
+        }
+     
+    }
+    if(contagem === 7){
+        container.style.display = 'none'
+        modalReset.style.display = 'flex'
+    }
+
+}
+draw()
 
 
 const gameReset = () => {
