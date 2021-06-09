@@ -59,8 +59,8 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70px;
-    width: 70px;
+    height: 40px;
+    width: 40px;
     border-radius: 10px;
     box-shadow:
     0 0 7px #fff,
@@ -84,8 +84,8 @@ body{
 .disco-red {
     background-image: url(./font/peterQuill2.png);
     background-size: 70px;
-    width: 60px;
-    height: 60px;
+    width: 30px;
+    height: 30px;
     border-radius: 30px;
     border: 2px solid white;
     transform: translateY(-1000px);
@@ -96,8 +96,8 @@ body{
 .disco-black {
     background-image: url(./font/Rockett2.png);
     background-size: 70px;
-    width: 60px;
-    height: 60px;
+    width: 30px;
+    height: 30px;
     border-radius: 30px;
     border: 2px solid white;
     transform: translateY(-1000px);
@@ -110,7 +110,7 @@ body{
     justify-content: center;
     align-items: center;
     position: absolute;
-    width: 400px;
+    width: 305px;
     height: 200px;
     box-shadow:
     0 0 7px #fff,
@@ -122,7 +122,7 @@ body{
     0 0 102px #0fa,
     0 0 151px #0fa;
     bottom: calc(50% - 100px);
-    right: calc(50% - 200px);
+    right: calc(50% - 150px);
     border-radius: 15px;
     display: none;
 
@@ -151,6 +151,7 @@ body{
     font-size: 20px;
     text-shadow: 3px 3px 0px black;
     color: white;
+    text-align: center;
 }
 
 #botao_resetar{
@@ -176,4 +177,27 @@ body{
   64%{transform: translateY(5px) scale(1.1,0.9)}
   80%{transform: translateY(-25px)}
   100%{transform: translateY(0px)}
+}
+
+@media (min-width: 768px) {
+
+.linha {
+    height: 70px;
+    width: 70px;
+}
+
+.disco-black, .disco-red {
+    height: 60px;
+    width: 60px;
+}
+
+#ganhou {
+    width: 400px;
+    right: calc(50% - 200px);
+}
+
+#ganhou h2 {
+    text-align: initial;
+}
+
 }
