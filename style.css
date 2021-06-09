@@ -104,7 +104,6 @@ body{
     position: absolute;
     width: 400px;
     height: 200px;
-    background-image:url(https://media.giphy.com/media/Z9bmnMFw0PM6MnxVfp/giphy.gif);
     box-shadow:
     0 0 7px #fff,
     0 0 10px #fff,
@@ -119,6 +118,31 @@ body{
     border-radius: 15px;
     display: none;
 
+}
+
+.petterWin {
+    background-image: url(https://img.wattpad.com/6abfd9cdfc70786c3f08f7b0fe3b3c7c16134862/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f776174747061642d6d656469612d736572766963652f53746f7279496d6167652f447941454f77327a696c693273413d3d2d3531393230393433392e313530376538663364613333386438373338313830313031303730392e676966);
+    background-size: 125%;
+}
+
+.raccoonWin {
+    background-image: url(https://media.tenor.com/images/78d3ef379378a6c81c08fdd653230988/tenor.gif);
+    background-size: 100%;
+    background-position-y: -28px;
+}
+
+.draw {
+    background-image: url(https://i.pinimg.com/originals/50/72/f8/5072f83f2497f4f6dd4b782c7e53698e.gif);
+    background-size: 170%;
+    background-position-x: -106px;
+    background-position-y: -67px;
+}
+
+#ganhou h2 {
+    font-family: patron;
+    font-size: 20px;
+    text-shadow: 3px 3px 0px black;
+    color: white;
 }
 
 #botao_resetar{
