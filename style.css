@@ -83,7 +83,7 @@ body{
 
 .disco-red {
     background-image: url(./font/peterQuill2.png);
-    background-size: 70px;
+    background-size: 30px;
     width: 30px;
     height: 30px;
     border-radius: 30px;
@@ -95,7 +95,7 @@ body{
 
 .disco-black {
     background-image: url(./font/Rockett2.png);
-    background-size: 70px;
+    background-size: 30px;
     width: 30px;
     height: 30px;
     border-radius: 30px;
@@ -189,6 +189,7 @@ body{
 .disco-black, .disco-red {
     height: 60px;
     width: 60px;
+    background-size: 60px;
 }
 
 #ganhou {
